@@ -7,13 +7,19 @@ module top (
 );
 
 /** Logic */
-    always @(bcd) begin
+    always @(*) begin
         seg7[0] <= (!bcd[1] & !bcd[3]) | (bcd[1] & bcd[3]) | (bcd[0] | !bcd[2]) | (!bcd[0] & !bcd[1] & bcd[2]) | (bcd[0] & !bcd[3]);
+        
         seg7[1] <= (!bcd[1] & !bcd[2]) | (bcd[1] & !bcd[3]) | (!bcd[0] & bcd[2] & bcd[3]);
+        
         seg7[2] <= (bcd[3]) | (!bcd[0] & ! bcd[2]) | (!bcd[1] & !bcd[2]) & (!bcd[0] & bcd[1]);
+        
         seg7[3] <= (!bcd[0] & !bcd[1] & !bcd[3]) | (bcd[0] & !bcd[2] & !bcd[3]) | (!bcd[1] & bcd[2] & bcd[3]) | (bcd[1] & !bcd[2] & bcd[3]) | (bcd[1] & bcd[2] & !bcd[3]);
+        
         seg7[4] <= (!bcd[1] & bcd[2]) | (bcd[0] & bcd[1]) | (!bcd[0] & !bcd[1] & bcd[3]) | (bcd[1] & !bcd[2] & bcd[3]) | (bcd[2] & !bcd[3]);
+        
         seg7[5] <= (!bcd[0] & !bcd[0]) | (bcd[1] & bcd[3]) | (bcd[0] & bcd[2]);
+        
         seg7[6] <= (!bcd[0] & bcd[3]) | (bcd[0] & !bcd[3]) | (bcd[2] & bcd[3]) | (bcd[1] & bcd[3]) | (bcd[1] & bcd[2]);
     end
 endmodule
