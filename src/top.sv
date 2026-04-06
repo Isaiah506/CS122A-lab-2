@@ -2,17 +2,18 @@ module top (
     /** Input Ports */
     /** Output Ports */
 
-    input wire[3:0] = bcd
-    Output wire[6:0] = 7seg
+    input wire[3:0] bcd,
+    output logic [6:0] seg7
 );
 
 /** Logic */
-always @(bcd)
-    assign 7seg[0] = (!bcd[1] & !bcd[3]) | (bcd[1] & bcd[3]) | (bcd[0] | !bcd[2]) | (!bcd[0] & !bcd[1] & bcd[2]) | (bcd[0] & !bcd[3])
-    assign 7seg[1] = (!bcd[1] & !bcd[2]) | (bcd[1] & !bcd[3]) | (!bcd[0] & bcd[2] & bcd[3])
-    assign 7seg[2] = (bcd[3]) | (!bcd[0] & ! bcd[2]) | (!bcd[1] & !bcd[2]) & (!bcd[0] & bcd[1])
-    assign 7seg[3] = (!bcd[0] & !bcd[1] & !bcd[3]) | (bcd[0] & !bcd[2] & !bcd[3]) | (!bcd[1] & bcd[2] & bcd[3]) | (bcd[1] & !bcd[2] & bcd[3]) | (bcd[1] & bcd[2] & !bcd[3])
-    assign 7seg[4] = (!bcd[1] & bcd[2]) | (bcd[0] & bcd[1]) | (!bcd[0] & !bcd[1] & bcd[3]) | (bcd[1] & !bcd[2] & bcd[3]) | (bcd[2] & !bcd[3])
-    assign 7seg[5] = (!bcd[0] & !bcd[0]) | (bcd[1] & bcd[3]) | (bcd[0] & bcd[2])
-    assign 7seg[6] = (!bcd[0] & bcd[3]) | (bcd[0] & !bcd[3]) | (bcd[2] & bcd[3]) | (bcd[1] & bcd[3]) | (bcd[1] & bcd[2])
+    always @(bcd) begin
+        seg7[0] <= (!bcd[1] & !bcd[3]) | (bcd[1] & bcd[3]) | (bcd[0] | !bcd[2]) | (!bcd[0] & !bcd[1] & bcd[2]) | (bcd[0] & !bcd[3]);
+        seg7[1] <= (!bcd[1] & !bcd[2]) | (bcd[1] & !bcd[3]) | (!bcd[0] & bcd[2] & bcd[3]);
+        seg7[2] <= (bcd[3]) | (!bcd[0] & ! bcd[2]) | (!bcd[1] & !bcd[2]) & (!bcd[0] & bcd[1]);
+        seg7[3] <= (!bcd[0] & !bcd[1] & !bcd[3]) | (bcd[0] & !bcd[2] & !bcd[3]) | (!bcd[1] & bcd[2] & bcd[3]) | (bcd[1] & !bcd[2] & bcd[3]) | (bcd[1] & bcd[2] & !bcd[3]);
+        seg7[4] <= (!bcd[1] & bcd[2]) | (bcd[0] & bcd[1]) | (!bcd[0] & !bcd[1] & bcd[3]) | (bcd[1] & !bcd[2] & bcd[3]) | (bcd[2] & !bcd[3]);
+        seg7[5] <= (!bcd[0] & !bcd[0]) | (bcd[1] & bcd[3]) | (bcd[0] & bcd[2]);
+        seg7[6] <= (!bcd[0] & bcd[3]) | (bcd[0] & !bcd[3]) | (bcd[2] & bcd[3]) | (bcd[1] & bcd[3]) | (bcd[1] & bcd[2]);
+    end
 endmodule
