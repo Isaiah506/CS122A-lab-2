@@ -5,7 +5,7 @@ module top (
 );
 
 
-/** Logic */
+/** Logic */ //4,5,b,d
 always @(*) begin
     if(bcd == 4'b0000) begin
         seg7 = 7'b1111110;
@@ -20,10 +20,10 @@ always @(*) begin
         seg7 = 7'b1111001;
     end
     else if(bcd == 4'b0100) begin
-        seg7 = 7'b0110001;
+        seg7 = 7'b0110011;
     end
     else if(bcd == 4'b0101) begin
-        seg7 = 7'b1110011;
+        seg7 = 7'b1011011;
     end
     else if(bcd == 4'b0110)begin
         seg7 = 7'b1011111;
@@ -41,13 +41,13 @@ always @(*) begin
         seg7 = 7'b1110111;
     end
     else if(bcd == 4'b1011) begin
-        seg7 = 7'b0001111;
+        seg7 = 7'b0011111;
     end
     else if(bcd == 4'b1100) begin
         seg7 = 7'b1001110;
     end 
     else if(bcd == 4'b1101) begin
-        seg7 = 7'b0111100;
+        seg7 = 7'b0111110;
     end
     else if(bcd == 4'b1110) begin
         seg7 = 7'b1001111;
@@ -58,4 +58,3 @@ always @(*) begin
 end
 
 endmodule
-
