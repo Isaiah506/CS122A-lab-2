@@ -47,7 +47,7 @@ always @(*) begin
         seg7 = 7'b1001110;
     end 
     else if(bcd == 4'b1101) begin
-        seg7 = 7'b0111110;
+        seg7 = 7'b0111101;
     end
     else if(bcd == 4'b1110) begin
         seg7 = 7'b1001111;
