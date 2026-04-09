@@ -15,15 +15,17 @@ module top_tb;
 
 /** declare tb signals below */
 logic clk_tb;
-logic[6:0] seg7_tb;
-reg[3:0] bcd_tb;
+logic[7:0] seg7_tb;
+reg[3:0] val1_tb;
+reg[3:0] val2_tb;
 
 /** declare module(s) below */
 top dut                    // declare an inst of top called "dut" (device under test)
 (
     /** hook up tb signals to dut signals */
     .clk(clk_tb),          // connect dut's clk wire to clk_tb
-    .bcd(bcd_tb),
+    .val1(val1_tb),
+    .val2(val2_tb),
     .seg7(seg7_tb)
 );
 
@@ -39,40 +41,152 @@ end
 initial begin
     /** testbench logic goes below */
     clk_tb<=1'b1;       // sets clk_tb to 1
-    #(CLK_PERIOD*3);
-    bcd_tb <= 4'b0000;
     #(CLK_PERIOD*3);    // waits for CLK_PERIOD * 3 ticks
-    bcd_tb <= 4'b0001;
+    val1_tb <= 0;
+    val2_tb <= 0;
     #(CLK_PERIOD*3);
-    bcd_tb <= 4'b0001;
+    val1_tb <= 1;
+    val2_tb <= 0;
     #(CLK_PERIOD*3);
-    bcd_tb <= 4'b0010;
+    val1_tb <= 2;
+    val2_tb <= 0;
     #(CLK_PERIOD*3);
-    bcd_tb <= 4'b0011;
+    val1_tb <= 3;
+    val2_tb <= 0;
     #(CLK_PERIOD*3);
-    bcd_tb <= 4'b0100;
+    val1_tb <= 4;
+    val2_tb <= 0;
     #(CLK_PERIOD*3);
-    bcd_tb <= 4'b0101;
+    val1_tb <= 5;
+    val2_tb <= 0;
     #(CLK_PERIOD*3);
-    bcd_tb <= 4'b0110;
+    val1_tb <= 6;
+    val2_tb <= 0;
     #(CLK_PERIOD*3);
-    bcd_tb <= 4'b0111;
+    val1_tb <= 7;
+    val2_tb <= 0;
     #(CLK_PERIOD*3);
-    bcd_tb <= 4'b1000;
+    val1_tb <= 8;
+    val2_tb <= 0;
     #(CLK_PERIOD*3);
-    bcd_tb <= 4'b1001;
+    val1_tb <= 9;
+    val2_tb <= 0;
     #(CLK_PERIOD*3);
-    bcd_tb <= 4'b1010;
+    val1_tb <= 10;
+    val2_tb <= 0;
     #(CLK_PERIOD*3);
-    bcd_tb <= 4'b1011;
+    val1_tb <= 11;
+    val2_tb <= 0;
     #(CLK_PERIOD*3);
-    bcd_tb <= 4'b1100;
+    val1_tb <= 12;
+    val2_tb <= 0;
     #(CLK_PERIOD*3);
-    bcd_tb <= 4'b1101;
+    val1_tb <= 13;
+    val2_tb <= 0;
     #(CLK_PERIOD*3);
-    bcd_tb <= 4'b1110;
+    val1_tb <= 14;
+    val2_tb <= 0;
     #(CLK_PERIOD*3);
-    bcd_tb <= 4'b1111;
+    val1_tb <= 15;
+    val2_tb <= 0;
+    #(CLK_PERIOD*3);
+    
+    val1_tb <= 0;
+    val2_tb <= 5;
+    #(CLK_PERIOD*3);
+    val1_tb <= 1;
+    val2_tb <= 5;
+    #(CLK_PERIOD*3);
+    val1_tb <= 2;
+    val2_tb <= 5;
+    #(CLK_PERIOD*3);
+    val1_tb <= 3;
+    val2_tb <= 5;
+    #(CLK_PERIOD*3);
+    val1_tb <= 4;
+    val2_tb <= 5;
+    #(CLK_PERIOD*3);
+    val1_tb <= 5;
+    val2_tb <= 5;
+    #(CLK_PERIOD*3);
+    val1_tb <= 6;
+    val2_tb <= 5;
+    #(CLK_PERIOD*3);
+    val1_tb <= 7;
+    val2_tb <= 5;
+    #(CLK_PERIOD*3);
+    val1_tb <= 8;
+    val2_tb <= 5;
+    #(CLK_PERIOD*3);
+    val1_tb <= 9;
+    val2_tb <= 5;
+    #(CLK_PERIOD*3);
+    val1_tb <= 10;
+    val2_tb <= 5;
+    #(CLK_PERIOD*3);
+    val1_tb <= 11;
+    val2_tb <= 5;
+    #(CLK_PERIOD*3);
+    val1_tb <= 12;
+    val2_tb <= 5;
+    #(CLK_PERIOD*3);
+    val1_tb <= 13;
+    val2_tb <= 5;
+    #(CLK_PERIOD*3);
+    val1_tb <= 14;
+    val2_tb <= 5;
+    #(CLK_PERIOD*3);
+    val1_tb <= 15;
+    val2_tb <= 5;
+    #(CLK_PERIOD*3);
+
+    val1_tb <= 0;
+    val2_tb <= 15;
+    #(CLK_PERIOD*3);
+    val1_tb <= 1;
+    val2_tb <= 15;
+    #(CLK_PERIOD*3);
+    val1_tb <= 2;
+    val2_tb <= 15;
+    #(CLK_PERIOD*3);
+    val1_tb <= 3;
+    val2_tb <= 15;
+    #(CLK_PERIOD*3);
+    val1_tb <= 4;
+    val2_tb <= 15;
+    #(CLK_PERIOD*3);
+    val1_tb <= 5;
+    val2_tb <= 15;
+    #(CLK_PERIOD*3);
+    val1_tb <= 6;
+    val2_tb <= 15;
+    #(CLK_PERIOD*3);
+    val1_tb <= 7;
+    val2_tb <= 15;
+    #(CLK_PERIOD*3);
+    val1_tb <= 8;
+    val2_tb <= 15;
+    #(CLK_PERIOD*3);
+    val1_tb <= 9;
+    val2_tb <= 15;
+    #(CLK_PERIOD*3);
+    val1_tb <= 10;
+    val2_tb <= 15;
+    #(CLK_PERIOD*3);
+    val1_tb <= 11;
+    val2_tb <= 15;
+    #(CLK_PERIOD*3);
+    val1_tb <= 12;
+    val2_tb <= 15;
+    #(CLK_PERIOD*3);
+    val1_tb <= 13;
+    val2_tb <= 15;
+    #(CLK_PERIOD*3);
+    val1_tb <= 14;
+    val2_tb <= 15;
+    #(CLK_PERIOD*3);
+    val1_tb <= 15;
+    val2_tb <= 15;
     #(CLK_PERIOD*3);
     $finish;            // end simulation, otherwise it runs indefinitely
 end
